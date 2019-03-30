@@ -1,6 +1,6 @@
 ####UBIQUM MODULE 3, TASK 2: WIFI ALLOCATION###
 #
-#MAXIMILI¿ GOLDSTON MARÕ
+#MAXIMILI√Ä GOLDSTON MAR√ç
 #INITIAL RELEASE (VERSION 1.0): 21/02/2019
 #
 #FUNCTIONALITY####
@@ -23,58 +23,59 @@
 #============================================================================#
 #/////////LOADING LIBRARIES                                                  #
 #============================================================================#
-#/////////SET DIRECTORY, IMPORT DATA
+#/////////SET DIRECTORY, IMPORT DATA                                         #
 #============================================================================#
-#/////////FUNCTIONS:
-#         -Function 1 spotting_errors: Plotting misclassified values.
-#         -Function 2 long_lat_knn: Predicting longitude using predicted lati-
-#          tude (or viceversa).
+#/////////FUNCTIONS:                                                         #
+#         -Function 1 spotting_errors: Plotting misclassified values.        #
+#         -Function 2 long_lat_knn: Predicting longitude using predicted lat-#
+#          itude (or viceversa).                                             #
 #============================================================================#
-#/////////DATA PREPROCESSING (Done on both original and validation datasets)
-#         -Change 100 values to -105.
-#         -Take out columns and rows that have only -105 values.
-#         -Taking out duplicated rows.
-#         -Normalizing by rows.
-#         -Doing PCA (we get 127 PCs).
+#/////////DATA PREPROCESSING (Done on both original and validation datasets) #
+#         -Change 100 values to -105.                                        #
+#         -Take out columns and rows that have only -105 values.             #
+#         -Taking out duplicated rows.                                       #
+#         -Normalizing by rows.                                              #
+#         -Doing PCA (we get 127 PCs).                                       #
 #============================================================================#
-#/////////PREDINCTING BUILDING
-#         -Subsampling in order to have same number of observations per building.
-#         -Training and test set (.85 split).
-#         -Knn (CV split = 10, 60 neighbors).
-#         -Predicting on testset.
-#         -Plotting original (black) and predicted values (red) -filtered by 
-#          building using spotting_errors function.
-#         -Applying same preprocess to validation set as for training set.
-#         -Plotting original (black) and predicted values (red) -filtered by 
-#          building) using spotting_errors function.
+#/////////PREDINCTING BUILDING                                               #
+#         -Subsampling in order to have same number of observations per buil-#
+#          ding.                                                             #
+#         -Training and test set (.85 split).                                #
+#         -Knn (CV split = 10, 60 neighbors).                                #
+#         -Predicting on testset.                                            #
+#         -Plotting original (black) and predicted values (red) -filtered by #
+#          building using spotting_errors function.                          #
+#         -Applying same preprocess to validation set as for training set.   #
+#         -Plotting original (black) and predicted values (red) -filtered by #
+#          building) using spotting_errors function.                         #
 #============================================================================#
-#/////////PREDICTING FLOOR
-#         -Training and test set (.85 split).
-#         -KNN (CV split = 10, 45 neighbors).
-#         -Predicting on testset.
-#         -Plotting original (black) and predicted values (red) -filtered by 
-#          building using spotting_errors function.
-#         -Predicting on validation set.
-#         -Plotting original (black) and predicted values (red) -filtered by 
-#          building using spotting_errors function.
+#/////////PREDICTING FLOOR                                                   #
+#         -Training and test set (.85 split).                                #
+#         -KNN (CV split = 10, 45 neighbors).                                #
+#         -Predicting on testset.                                            #
+#         -Plotting original (black) and predicted values (red) -filtered by #
+#          building using spotting_errors function.                          #
+#         -Predicting on validation set.                                     #
+#         -Plotting original (black) and predicted values (red) -filtered by #
+#          building using spotting_errors function.                          #
 #============================================================================#
-#/////////PREDICTING LONGITUDE AND LATITUDE
-#         -Using long_lat_knn to predict longitude and latitude: first we predict
-#          one and use that prediction to get the other one.
-#         -Visualizing results
-#         -Plotting original and predicted values.
+#/////////PREDICTING LONGITUDE AND LATITUDE                                  #
+#         -Using long_lat_knn to predict longitude and latitude: first we    #
+#          predict one and use that prediction to get the other one.         #
+#         -Visualizing results.                                              #
+#         -Plotting original and predicted values.                           #
 #============================================================================#
 
 #LOADING LIBRARIES####
 
-library(FactoMineR) 						#For PCA
-library(factoextra) 						#For PCA
-library(dplyr) 									#Used for easily selecting data
-library(plyr) 									#For ddply function
-library(ggplot2) 								#Plotting tool
-library(reshape) 								#Used when transposing the df that comes from normalizing.
-library(caret) 									#Used for Knn
-library(scales) 								#used for rescaling by rows
+library(FactoMineR)     #For PCA
+library(factoextra)     #For PCA
+library(dplyr) 		#Used for easily selecting data
+library(plyr) 		#For ddply function
+library(ggplot2) 		#Plotting tool
+library(reshape) 		#Used when transposing the df that comes from normalizing
+library(caret) 		#Used for Knn
+library(scales) 		#Used for rescaling by rows
 
 #============================================================================#
 #============================================================================#
