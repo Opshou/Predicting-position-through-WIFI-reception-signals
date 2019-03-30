@@ -9,7 +9,7 @@ The data consists of 19.938 observations of 520 signals coming from 520 differen
 #### Specific scope:
 Through K-nearest neighbors show that higher accuracy in training set does not provide good results in validation set. By increasing number of neighbors we find better results in the validation set.
 
-#### Results:
+#### Results: WIFI allocation.pdf
 More information on the results in the PDF.
 
 #### Our Data:
