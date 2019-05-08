@@ -1,5 +1,5 @@
 # Predicting position through WIFI signals
-## Big Data Supervised learning project (K-nearest neighbors)
+## Supervised learning project (K-nearest neighbors)
 
 We have information on WIFI signals received by different phones and users inside of 3 different buildings. Our goal is to find a model that will predict the position of a user just by looking at the signals he/ she is getting.
 
